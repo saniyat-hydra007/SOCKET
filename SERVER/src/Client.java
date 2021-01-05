@@ -30,6 +30,7 @@ public class Client implements Runnable{
         try {
             String clientData =  reader.readLine() + "\n";
             clientData = clientName + " writes: " + clientData;
+            System.out.println("prb1");
             while (clientData != null){
                 for(Client client: clients){
                     synchronized (client.writer) {
@@ -37,7 +38,8 @@ public class Client implements Runnable{
                         client.writer.flush();
                     }
                 }
-                clientData = reader.readLine() + "\n";
+                clientData =  reader.readLine() + "\n";
+                clientData = clientName + " writes: " + clientData;
             }
         }
         catch (IOException e){
